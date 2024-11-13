@@ -9,20 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/imagesloaded": "^4.1.6",
+    "imagesloaded": "^5.0.0",
+    "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "react-dom": "19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^9.14.0",
     "eslint-config-next": "15.0.3",
     "globals": "^15.12.0",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.14",
     "typescript": "^5",
     "typescript-eslint": "^8.14.0"
   }

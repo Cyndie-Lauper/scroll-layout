@@ -1,0 +1,92 @@
+/** COMMON STYLES */
+.flex-line {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--color-link-hover);
+  outline: none;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+  /* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+  outline: none;
+  background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+  background: transparent;
+}
+
+a:focus-visible {
+  /* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+  outline: 2px solid red;
+  background: transparent;
+}
+
+/** COMPONENTS: HeaderSetion */
+.frame {
+  display: grid;
+  grid-row-gap: 0.5rem;
+  grid-column-gap: 2rem;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-areas: 'logo' 'tags' 'sponsor' 'subline' 'title';
+}
+
+.frame__tags {
+  grid-area: tags;
+}
+
+.frame__logo {
+  grid-area: logo;
+  padding-bottom: 0.15rem;
+  font-size: 1.5rem;
+}
+
+.frame__title {
+  grid-area: title;
+  word-spacing: 0.15em;
+}
+
+.frame__subline {
+  grid-area: subline;
+}
+
+.type-tiny {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-variation-settings: 'wght' 400;
+}
+
+@media screen and (min-width: 53em) {
+  .frame {
+    grid-template-columns: 20% 1fr 1fr;
+    grid-template-rows: min-content 1fr auto;
+    grid-row-gap: 15vh;
+    align-items: center;
+    grid-template-areas: 'logo tags sponsor' '... ... subline' 'title title title';
+  }
+  .frame__links {
+    margin-left: 3rem;
+  }
+  .frame__subline {
+    align-self: end;
+  }
+  .frame__title {
+    align-self: end;
+  }
+  .page-footer {
+    grid-template-columns: repeat(3, auto);
+  }
+}
