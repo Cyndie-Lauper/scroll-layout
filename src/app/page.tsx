@@ -1,9 +1,13 @@
+'use client'
+
+import { useEffect } from 'react'
 import {
   HeaderSection,
   IntroSection,
   GallerySection,
   AboutSection,
 } from '@/components'
+import { initLenis } from '@/utils'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 /**
@@ -11,6 +15,13 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
  * @returns {JSX.Element} JSX Element for the home page.
  */
 export default function Home(): JSX.Element {
+  useEffect(() => {
+    const lenis = initLenis()
+
+    return () => {
+      lenis.destroy()
+    }
+  }, [])
   return (
     <>
       <SpeedInsights />
