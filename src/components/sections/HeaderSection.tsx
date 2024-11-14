@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import '@/styles/base.css'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -70,48 +70,53 @@ const Logo = (): JSX.Element => (
 )
 
 /**
- * The main header section of the page.
+ * Animate the header frame on scroll.
  * @function
- * @returns {JSX.Element} JSX Element for the header section.
+ * @returns {void}
  */
-export const HeaderSection = (): JSX.Element => {
-  useEffect(() => {
-    const animateFrame = () => {
-      const frame = document.querySelector('.frame')
-      if (frame) {
-        const frameTitle = frame.querySelector('.frame__title')
-        if (frameTitle) {
-          gsap
-            .timeline({
-              defaults: {
-                ease: 'none',
-              },
-              scrollTrigger: {
-                trigger: frame,
-                start: 'clamp(top bottom)',
-                end: 'bottom top',
-                scrub: true,
-              },
-            })
-            .to(frame, {
-              yPercent: 35,
-              scale: 0.95,
-              startAt: { filter: 'brightness(100%)' },
-              filter: 'brightness(30%)',
-            })
-            .to(
-              frameTitle,
-              {
-                xPercent: -80,
-              },
-              0,
-            )
-        }
-      }
+const animateFrame = (): void => {
+  const frame = document.querySelector('.frame')
+  if (frame) {
+    const frameTitle = frame.querySelector('.frame__title')
+    if (frameTitle) {
+      gsap
+        .timeline({
+          defaults: {
+            ease: 'none',
+          },
+          scrollTrigger: {
+            trigger: frame,
+            start: 'clamp(top bottom)',
+            end: 'bottom top',
+            scrub: true,
+          },
+        })
+        .to(frame, {
+          yPercent: 35,
+          scale: 0.95,
+          startAt: { filter: 'brightness(100%)' },
+          filter: 'brightness(30%)',
+        })
+        .to(
+          frameTitle,
+          {
+            xPercent: -80,
+          },
+          0,
+        )
     }
+  }
+}
 
+export const HeaderSection = (): JSX.Element => {
+  // Memoize the animateFrame function to avoid unnecessary re-renders
+  const initAnimation = useCallback(() => {
     animateFrame()
   }, [])
+
+  useEffect(() => {
+    initAnimation()
+  }, [initAnimation])
 
   return (
     <header className="frame relative p-page-pad uppercase leading-none h-screen justify-start content-start bg-bg-frame">
