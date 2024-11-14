@@ -5,6 +5,13 @@
   flex-wrap: wrap;
 }
 
+.type-tiny {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-variation-settings: 'wght' 400;
+}
+
 a:hover {
   text-decoration: underline;
   color: var(--color-link-hover);
@@ -33,7 +40,7 @@ a:focus-visible {
   background: transparent;
 }
 
-/** COMPONENTS: HeaderSetion */
+/** COMPONENTS: HeaderSection */
 .frame {
   display: grid;
   grid-row-gap: 0.5rem;
@@ -62,13 +69,6 @@ a:focus-visible {
   grid-area: subline;
 }
 
-.type-tiny {
-  font-size: 11px;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-variation-settings: 'wght' 400;
-}
-
 @media screen and (min-width: 53em) {
   .frame {
     grid-template-columns: 20% 1fr 1fr;
@@ -89,4 +89,13 @@ a:focus-visible {
   .page-footer {
     grid-template-columns: repeat(3, auto);
   }
+}
+
+/** COMPONENTS: IntroSection */
+.content--padded {
+  padding: 0.5rem;
+}
+
+.content__text {
+  font-variation-settings: 'wght' 500;
 }
