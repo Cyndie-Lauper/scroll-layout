@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '@/styles/base.css'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 /**
  * The main title of the page.
@@ -69,6 +73,41 @@ const Logo = (): JSX.Element => (
  * @returns {JSX.Element} JSX Element for the header section.
  */
 export const HeaderSection = (): JSX.Element => {
+  useEffect(() => {
+    const animateFrame = () => {
+      const frame = document.querySelector('.frame')
+      const frameTitle = frame.querySelector('.frame__title')
+
+      gsap
+        .timeline({
+          defaults: {
+            ease: 'none',
+          },
+          scrollTrigger: {
+            trigger: frame,
+            start: 'clamp(top bottom)',
+            end: 'bottom top',
+            scrub: true,
+          },
+        })
+        .to(frame, {
+          yPercent: 35,
+          scale: 0.95,
+          startAt: { filter: 'brightness(100%)' },
+          filter: 'brightness(30%)',
+        })
+        .to(
+          frameTitle,
+          {
+            xPercent: -80,
+          },
+          0,
+        )
+    }
+
+    animateFrame()
+  }, [])
+
   return (
     <header className="frame relative p-page-pad uppercase leading-none h-screen justify-start content-start bg-bg-frame">
       <Title />
