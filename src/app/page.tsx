@@ -1,4 +1,9 @@
-import { HeaderSection, IntroSection, GallerySection } from '@/components'
+import {
+  HeaderSection,
+  IntroSection,
+  GallerySection,
+  AboutSection,
+} from '@/components'
 
 /**
  * The main page of the website.
@@ -10,6 +15,7 @@ export default function Home(): JSX.Element {
       <HeaderSection />
       <IntroSection />
       <GallerySection />
+      <AboutSection />
     </>
   )
 }
