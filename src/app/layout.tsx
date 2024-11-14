@@ -4,20 +4,28 @@ import './globals.css'
 
 const areaVariable = localFont({
 <<<<<<< HEAD
+<<<<<<< HEAD
   src: './fonts/AreaVF.woff',
 =======
   src: '../assets/fonts/AreaVF.woff',
 >>>>>>> ab9b4a1 (chore: include some font for styling)
+=======
+  src: './fonts/AreaVF.woff',
+>>>>>>> 89bf780 (feat: design and implement GallerySection component)
   variable: '--font-area',
   weight: '100 900',
 })
 
 const bricolageGrotesque = localFont({
 <<<<<<< HEAD
+<<<<<<< HEAD
   src: './fonts/BricolageGrotesque.woff',
 =======
   src: '../assets/fonts/BricolageGrotesque.woff',
 >>>>>>> ab9b4a1 (chore: include some font for styling)
+=======
+  src: './fonts/BricolageGrotesque.woff',
+>>>>>>> 89bf780 (feat: design and implement GallerySection component)
   variable: '--font-bricolage-grotesque-48pt',
   weight: '100 900',
 })
