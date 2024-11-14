@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect } from 'react'
 import '@/styles/base.css'
 import { gsap } from 'gsap'
@@ -76,33 +78,36 @@ export const HeaderSection = (): JSX.Element => {
   useEffect(() => {
     const animateFrame = () => {
       const frame = document.querySelector('.frame')
-      const frameTitle = frame.querySelector('.frame__title')
-
-      gsap
-        .timeline({
-          defaults: {
-            ease: 'none',
-          },
-          scrollTrigger: {
-            trigger: frame,
-            start: 'clamp(top bottom)',
-            end: 'bottom top',
-            scrub: true,
-          },
-        })
-        .to(frame, {
-          yPercent: 35,
-          scale: 0.95,
-          startAt: { filter: 'brightness(100%)' },
-          filter: 'brightness(30%)',
-        })
-        .to(
-          frameTitle,
-          {
-            xPercent: -80,
-          },
-          0,
-        )
+      if (frame) {
+        const frameTitle = frame.querySelector('.frame__title')
+        if (frameTitle) {
+          gsap
+            .timeline({
+              defaults: {
+                ease: 'none',
+              },
+              scrollTrigger: {
+                trigger: frame,
+                start: 'clamp(top bottom)',
+                end: 'bottom top',
+                scrub: true,
+              },
+            })
+            .to(frame, {
+              yPercent: 35,
+              scale: 0.95,
+              startAt: { filter: 'brightness(100%)' },
+              filter: 'brightness(30%)',
+            })
+            .to(
+              frameTitle,
+              {
+                xPercent: -80,
+              },
+              0,
+            )
+        }
+      }
     }
 
     animateFrame()
