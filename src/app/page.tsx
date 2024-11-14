@@ -11,20 +11,32 @@ import { initLenis } from '@/utils'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 /**
- * The main page of the website.
- * @returns {JSX.Element} JSX Element for the home page.
+ * Custom hook to initialize and destroy Lenis smooth scroll.
  */
-export default function Home(): JSX.Element {
+const useLenis = () => {
   useEffect(() => {
     const lenis = initLenis()
 
+    // Cleanup on unmount
     return () => {
       lenis.destroy()
     }
   }, [])
+}
+
+/**
+ * The main page of the website.
+ * @returns {JSX.Element} JSX Element for the home page.
+ */
+export default function Home(): JSX.Element {
+  // Initialize Lenis smooth scroll
+  useLenis()
+
   return (
     <>
-      <SpeedInsights />
+      {/* Optional: Ensure SpeedInsights is available */}
+      {typeof SpeedInsights !== 'undefined' && <SpeedInsights />}
+
       <HeaderSection />
       <IntroSection />
       <GallerySection />
