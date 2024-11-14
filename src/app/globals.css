@@ -26,11 +26,7 @@ body {
   margin: 0;
   color: var(--color-text);
   background-color: var(--color-bg);
-  font-variation-settings:
-    'slnt' 0,
-    'wdth' 100,
-    'wght' 450,
-    'INKT' 0;
+  font-variation-settings: 'slnt' 0, 'wdth' 100, 'wght' 450, 'INKT' 0;
   font-weight: 450;
   line-height: 1.2;
 }
