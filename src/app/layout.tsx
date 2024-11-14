@@ -3,13 +3,13 @@ import localFont from 'next/font/local'
 import './globals.css'
 
 const areaVariable = localFont({
-  src: '../assets/fonts/AreaVF.woff',
+  src: './fonts/AreaVF.woff',
   variable: '--font-area',
   weight: '100 900',
 })
 
 const bricolageGrotesque = localFont({
-  src: '../assets/fonts/BricolageGrotesque.woff',
+  src: './fonts/BricolageGrotesque.woff',
   variable: '--font-bricolage-grotesque-48pt',
   weight: '100 900',
 })
