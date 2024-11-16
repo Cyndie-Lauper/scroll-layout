@@ -17,6 +17,9 @@ gsap.registerPlugin(ScrollTrigger)
  *
  */
 const animateSecondGrid = (): void => {
+  const SCROLL_END_PERCENTAGE = 250
+  const STAGGER_DELAY = 0.3
+  const ROTATION_FACTOR = 3
   const grid = document.querySelector("[data-grid-second]")
   if (grid) {
     const gridImages = grid.querySelectorAll(".grid__img")
@@ -31,28 +34,28 @@ const animateSecondGrid = (): void => {
           scrollTrigger: {
             trigger: grid,
             start: "center center",
-            end: "+=250%",
+            end: `+=${SCROLL_END_PERCENTAGE}%`,
             pin: grid.parentNode instanceof Element ? grid.parentNode : false,
             scrub: 0.5,
           },
         })
         .from(gridImages, {
-          stagger: 0.3,
+          stagger: STAGGER_DELAY,
           from: "center",
           y: typeof window !== "undefined" ? window.innerHeight : 1000,
           transformOrigin: "50% 0%",
           rotation: (pos) => {
             const distanceFromCenter = Math.abs(pos - middleIndex)
             return pos < middleIndex
-              ? distanceFromCenter * 3
-              : distanceFromCenter * -3
+              ? distanceFromCenter * ROTATION_FACTOR
+              : distanceFromCenter * -ROTATION_FACTOR
           },
         })
         .from(
           grid.querySelector(".grid__item"),
           {
             stagger: {
-              amount: 0.3,
+              amount: STAGGER_DELAY,
               from: "center",
             },
             yPercent: 100,
@@ -60,9 +63,19 @@ const animateSecondGrid = (): void => {
           },
           0,
         )
+    } else {
+      console.error("Grid images not found")
     }
   }
 }
+
+const GALLERY_START_INDEX = 17
+const GALLERY_END_INDEX = 22
+const GRID_ITEMS = [
+  { title: "Vision", description: "Unveiling the unseen", position: "6" },
+  { title: "Focus", description: "Where color meets form", position: "7" },
+  { title: "Essence", description: "Moments in motion", position: "18" },
+]
 
 /**
  * The second gallery section of the page.
@@ -74,7 +87,7 @@ const animateSecondGrid = (): void => {
  * element with class "grid__img". The animation uses the GSAP animation library.
  */
 export const SecondGallerySection = (): JSX.Element => {
-  const selectedImages = images.slice(17, 22)
+  const selectedImages = images.slice(GALLERY_START_INDEX, GALLERY_END_INDEX)
 
   // Use useCallback to memoize the animateFirstGrid function
   const initAnimation = useCallback(() => {
@@ -91,21 +104,14 @@ export const SecondGallerySection = (): JSX.Element => {
         {selectedImages.map((img, index) => (
           <ImageGridItem key={index} img={img} />
         ))}
-        <GridItem
-          title="Vision"
-          description="Unveiling the unseen"
-          position="6"
-        />
-        <GridItem
-          title="Focus"
-          description="Where color meets form"
-          position="7"
-        />
-        <GridItem
-          title="Essence"
-          description="Moments in motion"
-          position="18"
-        />
+        {GRID_ITEMS.map(({ title, description, position }) => (
+          <GridItem
+            key={`grid-item-${position}`}
+            title={title}
+            description={description}
+            position={position}
+          />
+        ))}
       </div>
     </section>
   )
