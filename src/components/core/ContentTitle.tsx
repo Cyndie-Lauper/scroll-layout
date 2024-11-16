@@ -1,3 +1,4 @@
+import { mergeClasses } from "@/utils"
 import "@/styles/base.css"
 
 interface ContentTitleProps {
@@ -14,9 +15,10 @@ interface ContentTitleProps {
 export function ContentTitle({
   title,
   description,
+  className,
 }: ContentTitleProps): JSX.Element {
   return (
-    <div className="content__title">
+    <div className={mergeClasses("content__title", className || "")}>
       <h2 className="content__title-main">{title}</h2>
       <p className="type-tiny right end">{description}</p>
     </div>

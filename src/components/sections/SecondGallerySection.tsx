@@ -3,8 +3,8 @@
 import React, { useCallback, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { images } from "@/contants"
-import { GridItem } from "../core"
+import { images } from "@/constants"
+import { GridItem, ImageGridItem } from "../core"
 import "@/styles/base.css"
 
 gsap.registerPlugin(ScrollTrigger)
@@ -32,14 +32,14 @@ const animateSecondGrid = (): void => {
             trigger: grid,
             start: "center center",
             end: "+=250%",
-            pin: grid.parentNode as Element,
+            pin: grid.parentNode instanceof Element ? grid.parentNode : false,
             scrub: 0.5,
           },
         })
         .from(gridImages, {
           stagger: 0.3,
           from: "center",
-          y: window.innerHeight,
+          y: typeof window !== "undefined" ? window.innerHeight : 1000,
           transformOrigin: "50% 0%",
           rotation: (pos) => {
             const distanceFromCenter = Math.abs(pos - middleIndex)
@@ -89,11 +89,7 @@ export const SecondGallerySection = (): JSX.Element => {
     <section className="content content--padded">
       <div className="grid grid--columns grid--spaced" data-grid-second>
         {selectedImages.map((img, index) => (
-          <div
-            key={index}
-            className="grid__img"
-            style={{ backgroundImage: `url(./image/${img})` }}
-          ></div>
+          <ImageGridItem key={index} img={img} />
         ))}
         <GridItem
           title="Vision"

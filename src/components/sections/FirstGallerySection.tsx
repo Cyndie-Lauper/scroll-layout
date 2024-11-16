@@ -2,8 +2,8 @@
 
 import React, { useEffect, useCallback } from "react"
 import "@/styles/base.css"
-import { images } from "@/contants"
-import { ContentTitle } from "../core"
+import { images } from "@/constants"
+import { ContentTitle, ImageGridItem } from "../core"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -56,27 +56,6 @@ const animateFirstGrid = (): void => {
 }
 
 /**
- * A single image in the gallery grid.
- * @function
- * @param {{ img: string; index: number }} props
- * @prop {string} img - The filename of the image.
- * @prop {number} index - The index of the image in the array.
- * @returns {JSX.Element} JSX Element for the single image.
- */
-const ImageGridItem = ({
-  img,
-  index,
-}: {
-  img: string
-  index: number
-}): JSX.Element => (
-  <div
-    className={`grid__img pos-${index + 1}`}
-    style={{ backgroundImage: `url(./image/${img})` }}
-  ></div>
-)
-
-/**
  * The main gallery section of the page.
  * @function
  * @returns {JSX.Element} JSX Element for the gallery section.
@@ -97,7 +76,7 @@ export const FirstGallerySection = (): JSX.Element => {
     <section className="content content--full content--padded">
       <div className="grid grid--spaced" data-grid-first>
         {selectedImages.map((img, index) => (
-          <ImageGridItem key={img} img={img} index={index} />
+          <ImageGridItem key={index} img={img} className={`pos-${index + 1}`} />
         ))}
       </div>
       <ContentTitle title="Rawness" description="Captured in every moment" />

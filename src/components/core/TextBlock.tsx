@@ -20,7 +20,12 @@ export function TextBlock({
 }: TextBlockProps): JSX.Element {
   return (
     <section
-      className={mergeClasses("content", "content--padded", "ml-2", className)}
+      className={mergeClasses(
+        "content",
+        "content--padded",
+        "ml-2",
+        className || "",
+      )}
     >
       <h4 className="type-tiny">{title}</h4>
       <p className="text-[1.7rem] max-w-[625px] leading-[1.4] my-2 font-thin text-balance tracking-tight">

@@ -25,7 +25,7 @@ export function GridItem({
 }: GridItemProps): JSX.Element {
   return (
     <div
-      className={mergeClasses("grid__item", `pos-${position}`, className)}
+      className={mergeClasses("grid__item", `pos-${position}`, className || "")}
       key={position}
     >
       <h4 className="type-tiny">{title}</h4>
