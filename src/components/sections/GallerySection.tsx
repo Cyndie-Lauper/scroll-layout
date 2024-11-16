@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import React, { useEffect, useCallback } from 'react'
-import '@/styles/base.css'
-import { images } from '@/contants'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import React, { useEffect, useCallback } from "react"
+import "@/styles/base.css"
+import { images } from "@/contants"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -16,21 +16,21 @@ gsap.registerPlugin(ScrollTrigger)
  *
  */
 const animateFirstGrid = (): void => {
-  const grid = document.querySelector('[data-grid-first]')
+  const grid = document.querySelector("[data-grid-first]")
   if (grid) {
-    const gridImages = grid.querySelectorAll('.grid__img')
+    const gridImages = grid.querySelectorAll(".grid__img")
     const parent = grid.parentNode as Element
 
     if (gridImages && parent) {
       gsap
         .timeline({
           defaults: {
-            ease: 'sine',
+            ease: "sine",
           },
           scrollTrigger: {
             trigger: grid,
-            start: 'center center',
-            end: '+=250%',
+            start: "center center",
+            end: "+=250%",
             pin: parent,
             scrub: 0.5,
           },
@@ -41,10 +41,10 @@ const animateFirstGrid = (): void => {
             gsap.utils.random(window.innerHeight, window.innerHeight * 1.8),
         })
         .from(
-          parent.querySelector('.content__title'),
+          parent.querySelector(".content__title"),
           {
             duration: 1.2,
-            ease: 'power4',
+            ease: "power4",
             yPercent: 180,
             autoAlpha: 0,
           },

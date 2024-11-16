@@ -1,6 +1,6 @@
-import Lenis from 'lenis'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Lenis from "lenis"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -22,7 +22,7 @@ export const initLenis = (): Lenis => {
   /**
    * Updates the ScrollTrigger when the user scrolls.
    */
-  lenis.on('scroll', ScrollTrigger.update)
+  lenis.on("scroll", ScrollTrigger.update)
 
   /**
    * Adds the Lenis RAF to the GSAP ticker.

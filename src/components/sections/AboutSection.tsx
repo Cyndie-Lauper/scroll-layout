@@ -1,5 +1,5 @@
-import React from 'react'
-import '@/styles/base.css'
+import React from "react"
+import "@/styles/base.css"
 
 /**
  * The about section of the page.
