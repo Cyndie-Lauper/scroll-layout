@@ -3,9 +3,10 @@
 import {
   HeaderSection,
   IntroSection,
-  GallerySection,
+  FirstGallerySection,
   AboutSection,
-  VisionSection,
+  SecondGallerySection,
+  LifeSection,
 } from "@/components"
 import { useLenis, usePreloadimages } from "@/hooks"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -15,8 +16,12 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
  * @returns {JSX.Element} JSX Element for the home page.
  */
 export default function Home(): JSX.Element {
+  /**
+   * Custom Hooks
+   */
   useLenis()
   usePreloadimages()
+
   return (
     <div className="loading">
       {/* Optional: Ensure SpeedInsights is available */}
@@ -24,9 +29,10 @@ export default function Home(): JSX.Element {
 
       <HeaderSection />
       <IntroSection />
-      <GallerySection />
+      <FirstGallerySection />
       <AboutSection />
-      <VisionSection />
+      <SecondGallerySection />
+      <LifeSection />
     </div>
   )
 }

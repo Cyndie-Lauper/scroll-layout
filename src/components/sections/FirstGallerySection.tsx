@@ -3,6 +3,7 @@
 import React, { useEffect, useCallback } from "react"
 import "@/styles/base.css"
 import { images } from "@/contants"
+import { ContentTitle } from "../core"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -76,23 +77,11 @@ const ImageGridItem = ({
 )
 
 /**
- * The title of the content section.
- * @function
- * @returns {JSX.Element} JSX Element for the content title.
- */
-const ContentTitle = (): JSX.Element => (
-  <div className="content__title">
-    <h2 className="content__title-main">Rawness</h2>
-    <p className="type-tiny text-right self-end">Captured in every moment</p>
-  </div>
-)
-
-/**
  * The main gallery section of the page.
  * @function
  * @returns {JSX.Element} JSX Element for the gallery section.
  */
-export const GallerySection = (): JSX.Element => {
+export const FirstGallerySection = (): JSX.Element => {
   const selectedImages = images.slice(0, 17)
 
   // Use useCallback to memoize the animateFirstGrid function
@@ -111,7 +100,7 @@ export const GallerySection = (): JSX.Element => {
           <ImageGridItem key={img} img={img} index={index} />
         ))}
       </div>
-      <ContentTitle />
+      <ContentTitle title="Rawness" description="Captured in every moment" />
     </section>
   )
 }
