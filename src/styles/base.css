@@ -1,3 +1,5 @@
+/**TODO: CREATE :ROOT AND DEFINE VARIABLES HERE**/
+
 /** COMMON STYLES */
 .flex-line {
   display: flex;
@@ -9,7 +11,7 @@
   font-size: 11px;
   text-transform: uppercase;
   font-weight: 400;
-  font-variation-settings: 'wght' 400;
+  font-variation-settings: "wght" 400;
 }
 
 .content {
@@ -30,6 +32,21 @@
   height: 100%;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 1fr 1fr 1fr;
+}
+
+.grid--columns {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, min-content);
+  align-content: center;
+}
+
+.grid--columns .grid__img {
+  height: min-content;
+  aspect-ratio: 2/3;
+}
+
+.grid--spaced {
+  gap: 0.5rem;
 }
 
 @media (max-aspect-ratio: 16/9) {
@@ -119,7 +136,7 @@
   line-height: 1;
   margin: 0.5rem 0 0;
   font-weight: 500;
-  font-variation-settings: 'wght' 500;
+  font-variation-settings: "wght" 500;
   text-wrap: balance;
   letter-spacing: -0.025em;
 }
@@ -164,7 +181,7 @@ a:focus-visible {
   grid-column-gap: 2rem;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto auto 1fr;
-  grid-template-areas: 'logo' 'tags' 'sponsor' 'subline' 'title';
+  grid-template-areas: "logo" "tags" "sponsor" "subline" "title";
 }
 
 .frame__tags {
@@ -192,7 +209,7 @@ a:focus-visible {
     grid-template-rows: min-content 1fr auto;
     grid-row-gap: 15vh;
     align-items: center;
-    grid-template-areas: 'logo tags sponsor' '... ... subline' 'title title title';
+    grid-template-areas: "logo tags sponsor" "... ... subline" "title title title";
   }
   .frame__links {
     margin-left: 3rem;
@@ -210,14 +227,14 @@ a:focus-visible {
 
 /** COMPONENTS: IntroSection */
 .content__text {
-  font-variation-settings: 'wght' 500;
+  font-variation-settings: "wght" 500;
 }
 
 .content--full {
   display: grid;
   height: 100vh;
   place-items: center;
-  grid-template-areas: 'main';
+  grid-template-areas: "main";
   grid-template-rows: 100%;
   grid-template-columns: 100%;
 }

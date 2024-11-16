@@ -1,5 +1,5 @@
 {
-  "singleQuote": true,
+  "doubleQuote": true,
   "trailingComma": "all",
   "semi": false,
   "tabWidth": 2

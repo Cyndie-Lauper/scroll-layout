@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React, { useEffect, useCallback } from 'react'
-import '@/styles/base.css'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import React, { useEffect, useCallback } from "react"
+import "@/styles/base.css"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -75,27 +75,27 @@ const Logo = (): JSX.Element => (
  * @returns {void}
  */
 const animateFrame = (): void => {
-  const frame = document.querySelector('.frame')
+  const frame = document.querySelector(".frame")
   if (frame) {
-    const frameTitle = frame.querySelector('.frame__title')
+    const frameTitle = frame.querySelector(".frame__title")
     if (frameTitle) {
       gsap
         .timeline({
           defaults: {
-            ease: 'none',
+            ease: "none",
           },
           scrollTrigger: {
             trigger: frame,
-            start: 'clamp(top bottom)',
-            end: 'bottom top',
+            start: "clamp(top bottom)",
+            end: "bottom top",
             scrub: true,
           },
         })
         .to(frame, {
           yPercent: 35,
           scale: 0.95,
-          startAt: { filter: 'brightness(100%)' },
-          filter: 'brightness(30%)',
+          startAt: { filter: "brightness(100%)" },
+          filter: "brightness(30%)",
         })
         .to(
           frameTitle,
