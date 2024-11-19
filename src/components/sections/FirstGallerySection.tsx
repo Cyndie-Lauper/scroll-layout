@@ -17,6 +17,8 @@ gsap.registerPlugin(ScrollTrigger)
  *
  */
 const animateFirstGrid = (): void => {
+  const SCROLL_END_PERCENTAGE = 250
+  const STAGGER_DELAY = 0.07
   const grid = document.querySelector("[data-grid-first]")
   if (grid) {
     const gridImages = grid.querySelectorAll(".grid__img")
@@ -31,13 +33,13 @@ const animateFirstGrid = (): void => {
           scrollTrigger: {
             trigger: grid,
             start: "center center",
-            end: "+=250%",
-            pin: parent,
+            end: `+=${SCROLL_END_PERCENTAGE}%`,
+            pin: window.innerWidth > 768 ? parent : false,
             scrub: 0.5,
           },
         })
         .from(gridImages, {
-          stagger: 0.07,
+          stagger: STAGGER_DELAY,
           y: () =>
             gsap.utils.random(window.innerHeight, window.innerHeight * 1.8),
         })

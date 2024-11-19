@@ -9,6 +9,14 @@ import "@/styles/base.css"
 
 gsap.registerPlugin(ScrollTrigger)
 
+const GALLERY_START_INDEX = 17
+const GALLERY_END_INDEX = 22
+const GRID_ITEMS = [
+  { title: "Vision", description: "Unveiling the unseen", position: "6" },
+  { title: "Focus", description: "Where color meets form", position: "7" },
+  { title: "Essence", description: "Moments in motion", position: "18" },
+]
+
 /**
  * Animates the second grid section on the page.
  *
@@ -42,7 +50,7 @@ const animateSecondGrid = (): void => {
         .from(gridImages, {
           stagger: STAGGER_DELAY,
           from: "center",
-          y: typeof window !== "undefined" ? window.innerHeight : 1000,
+          y: "100vh",
           transformOrigin: "50% 0%",
           rotation: (pos) => {
             const distanceFromCenter = Math.abs(pos - middleIndex)
@@ -68,14 +76,6 @@ const animateSecondGrid = (): void => {
     }
   }
 }
-
-const GALLERY_START_INDEX = 17
-const GALLERY_END_INDEX = 22
-const GRID_ITEMS = [
-  { title: "Vision", description: "Unveiling the unseen", position: "6" },
-  { title: "Focus", description: "Where color meets form", position: "7" },
-  { title: "Essence", description: "Moments in motion", position: "18" },
-]
 
 /**
  * The second gallery section of the page.
