@@ -3,9 +3,14 @@ import { TextBlock } from "../core"
 import "@/styles/base.css"
 
 /**
- * The intro section of the page.
- * @function
- * @returns {JSX.Element} JSX Element for the intro section.
+ * The work ethic section of the page.
+ *
+ * This section features a passage of text that describes the artist's
+ * perspective on work ethics.
+ *
+ * The text is rendered as a {@link TextBlock} component.
+ *
+ * @returns {JSX.Element} JSX Element for the work ethic section.
  */
 export const WorkEthicSection = (): JSX.Element => (
   <TextBlock

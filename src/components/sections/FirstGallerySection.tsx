@@ -34,7 +34,7 @@ const animateFirstGrid = (): void => {
             trigger: grid,
             start: "center center",
             end: `+=${SCROLL_END_PERCENTAGE}%`,
-            pin: parent,
+            pin: window.innerWidth > 768 ? parent : false,
             scrub: 0.5,
           },
         })

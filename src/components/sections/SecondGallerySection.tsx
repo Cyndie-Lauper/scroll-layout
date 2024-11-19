@@ -50,7 +50,7 @@ const animateSecondGrid = (): void => {
         .from(gridImages, {
           stagger: STAGGER_DELAY,
           from: "center",
-          y: typeof window !== "undefined" ? window.innerHeight : 1000,
+          y: "100vh",
           transformOrigin: "50% 0%",
           rotation: (pos) => {
             const distanceFromCenter = Math.abs(pos - middleIndex)

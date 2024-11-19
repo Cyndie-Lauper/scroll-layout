@@ -27,13 +27,12 @@ const GRID_ITEMS = [
 ]
 
 /**
- * Animates the second grid section on the page.
+ * Animates the third grid section on the page.
  *
  * @function
  * @returns {void}
  *
  */
-// Function to animate the third grid
 const animateThirdGrid = (): void => {
   const SCROLL_END_PERCENTAGE = 200
   const STAGGER_DELAY = 0.06
@@ -57,7 +56,7 @@ const animateThirdGrid = (): void => {
         })
         .from(gridImages, {
           stagger: STAGGER_DELAY,
-          y: typeof window !== "undefined" ? window.innerHeight : 1000,
+          y: "100vh",
           rotation: () => gsap.utils.random(-15, 15),
           transformOrigin: "50% 0%",
         })
@@ -90,13 +89,15 @@ const animateThirdGrid = (): void => {
 }
 
 /**
- * The second gallery section of the page.
+ * The third gallery section of the page.
  * @function
- * @returns {JSX.Element} JSX Element for the second gallery section.
+ * @returns {JSX.Element} JSX Element for the third gallery section.
  *
- * This section features a grid of images that are animated when the user scrolls
- * to the section. The images are rendered as background images of a &lt;div&gt;
- * element with class "grid__img". The animation uses the GSAP animation library.
+ * This section features a grid of images and text content that are animated when
+ * the user scrolls to the section. The images are rendered as background images
+ * of a &lt;div&gt; element with class "grid__img". The text content is rendered
+ * inside &lt;div&gt; elements with class "grid__item". The animation uses the
+ * GSAP animation library.
  */
 export const ThirdGallerySection = (): JSX.Element => {
   const selectedImages = images.slice(GALLERY_START_INDEX, GALLERY_END_INDEX)
