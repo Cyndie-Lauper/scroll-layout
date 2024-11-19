@@ -9,12 +9,21 @@ import "@/styles/base.css"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const GALLERY_START_INDEX = 17
-const GALLERY_END_INDEX = 22
+const GALLERY_START_INDEX = 24
+const GALLERY_END_INDEX = 27
 const GRID_ITEMS = [
-  { title: "Vision", description: "Unveiling the unseen", position: "6" },
-  { title: "Focus", description: "Where color meets form", position: "7" },
-  { title: "Essence", description: "Moments in motion", position: "18" },
+  {
+    title: "Craft",
+    description:
+      "His craft reveals the quiet beauty in life’s fleeting moments.",
+    position: "1",
+  },
+  {
+    title: "Perspective",
+    description:
+      "His perspective finds depth in stillness, where the unseen speaks.",
+    position: "4",
+  },
 ]
 
 /**
@@ -24,14 +33,13 @@ const GRID_ITEMS = [
  * @returns {void}
  *
  */
-const animateSecondGrid = (): void => {
-  const SCROLL_END_PERCENTAGE = 250
-  const STAGGER_DELAY = 0.3
-  const ROTATION_FACTOR = 3
-  const grid = document.querySelector("[data-grid-second]")
+// Function to animate the third grid
+const animateThirdGrid = (): void => {
+  const SCROLL_END_PERCENTAGE = 200
+  const STAGGER_DELAY = 0.06
+  const grid = document.querySelector("[data-grid-third]")
   if (grid) {
     const gridImages = grid.querySelectorAll(".grid__img")
-    const middleIndex = Math.floor(gridImages.length / 2)
 
     if (gridImages) {
       gsap
@@ -44,35 +52,39 @@ const animateSecondGrid = (): void => {
             start: "center center",
             end: `+=${SCROLL_END_PERCENTAGE}%`,
             pin: grid.parentNode instanceof Element ? grid.parentNode : false,
-            scrub: 0.5,
+            scrub: 0.2,
           },
         })
         .from(gridImages, {
           stagger: STAGGER_DELAY,
-          from: "center",
           y: typeof window !== "undefined" ? window.innerHeight : 1000,
+          rotation: () => gsap.utils.random(-15, 15),
           transformOrigin: "50% 0%",
-          rotation: (pos) => {
-            const distanceFromCenter = Math.abs(pos - middleIndex)
-            return pos < middleIndex
-              ? distanceFromCenter * ROTATION_FACTOR
-              : distanceFromCenter * -ROTATION_FACTOR
-          },
         })
-        .from(
-          grid.querySelector(".grid__item"),
+        .fromTo(
+          gridImages,
           {
-            stagger: {
-              amount: STAGGER_DELAY,
-              from: "center",
-            },
-            yPercent: 100,
-            autoAlpha: 0,
+            filter: "brightness(100%)",
+          },
+          {
+            ease: "none",
+            stagger: STAGGER_DELAY,
+            filter: (pos) =>
+              pos < gridImages.length - 1
+                ? "brightness(20%)"
+                : "brightness(100%)",
           },
           0,
         )
-    } else {
-      console.error("Grid images not found")
+        // text content
+        .from(
+          grid.querySelectorAll(".grid__item"),
+          {
+            xPercent: (pos) => (pos % 2 ? 100 : -100),
+            autoAlpha: 0,
+          },
+          STAGGER_DELAY * gridImages.length,
+        )
     }
   }
 }
@@ -86,12 +98,12 @@ const animateSecondGrid = (): void => {
  * to the section. The images are rendered as background images of a &lt;div&gt;
  * element with class "grid__img". The animation uses the GSAP animation library.
  */
-export const SecondGallerySection = (): JSX.Element => {
+export const ThirdGallerySection = (): JSX.Element => {
   const selectedImages = images.slice(GALLERY_START_INDEX, GALLERY_END_INDEX)
 
   // Use useCallback to memoize the animateFirstGrid function
   const initAnimation = useCallback(() => {
-    animateSecondGrid()
+    animateThirdGrid()
   }, [])
 
   useEffect(() => {
@@ -100,9 +112,12 @@ export const SecondGallerySection = (): JSX.Element => {
 
   return (
     <section className="content content--padded">
-      <div className="grid grid--columns grid--spaced" data-grid-second>
+      <div
+        className="grid grid--columns grid--spaced h-auto justify-self-center"
+        data-grid-third
+      >
         {selectedImages.map((img, index) => (
-          <ImageGridItem key={index} img={img} />
+          <ImageGridItem key={index} img={img} className="pos-2" />
         ))}
         {GRID_ITEMS.map(({ title, description, position }) => (
           <GridItem
@@ -110,6 +125,7 @@ export const SecondGallerySection = (): JSX.Element => {
             title={title}
             description={description}
             position={position}
+            className="self-center ml-2"
           />
         ))}
       </div>
