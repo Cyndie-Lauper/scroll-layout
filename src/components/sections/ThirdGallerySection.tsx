@@ -117,9 +117,14 @@ export const ThirdGallerySection = (): JSX.Element => {
         className="grid grid--columns grid--spaced h-auto justify-self-center"
         data-grid-third
       >
-        {selectedImages.map((img, index) => (
-          <ImageGridItem key={index} img={img} className="pos-2" />
-        ))}
+        {selectedImages.map((img, index) => {
+          try {
+            return <ImageGridItem key={index} img={img} className="pos-2" />
+          } catch (error) {
+            console.error(`Failed to render image at index ${index}:`, error)
+            return null
+          }
+        })}
         {GRID_ITEMS.map(({ title, description, position }) => (
           <GridItem
             key={`grid-item-${position}`}

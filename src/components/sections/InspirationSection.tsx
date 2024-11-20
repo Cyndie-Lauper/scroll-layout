@@ -2,8 +2,8 @@ import React from "react"
 import { TextBlock } from "../core"
 
 /**
- * The about section of the page.
- * @returns {JSX.Element} JSX Element for the about section.
+ * The Inspiration section of the page.
+ * @returns {JSX.Element} JSX Element for the Inspiration section.
  *
  * This section features a passage of text that describes the artist's
  * perspective and style.

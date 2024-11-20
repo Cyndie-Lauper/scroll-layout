@@ -93,9 +93,14 @@ export const FifthGallerySection = (): JSX.Element => {
   return (
     <section className="content content--full">
       <div className="grid grid--small" data-grid-fifth>
-        {selectedImages.map((img, index) => (
-          <ImageGridItem key={index} img={img} />
-        ))}
+        {selectedImages.map((img, index) => {
+          try {
+            return <ImageGridItem key={index} img={img} />
+          } catch (error) {
+            console.error(`Failed to render image at index ${index}:`, error)
+            return null
+          }
+        })}
       </div>
     </section>
   )

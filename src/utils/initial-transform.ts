@@ -1,10 +1,4 @@
-type Transform = {
-  x: number
-  y: number
-  z: number
-  rotateX: number
-  rotateY: number
-}
+import type { Transform } from "@/constants"
 
 /**
  * Calculate the initial transform of an element relative to the viewport.
@@ -18,9 +12,9 @@ type Transform = {
  */
 export const calculateInitialTransform = (
   element: HTMLElement,
-  offsetDistance: number = 250,
-  maxRotation: number = 300,
-  maxZTranslation: number = 2000,
+  offsetDistance = 250,
+  maxRotation = 300,
+  maxZTranslation = 2000,
 ): Transform => {
   const viewportCenter = {
     width: window.innerWidth / 2,
