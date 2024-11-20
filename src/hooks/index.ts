@@ -1,2 +1,2 @@
-export * from "./use-lenis"
-export * from "./use-preload"
+export * from "./useLenis"
+export * from "./usePreload"

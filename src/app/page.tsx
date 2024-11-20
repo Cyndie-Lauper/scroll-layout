@@ -9,6 +9,9 @@ import {
   LifeSection,
   ThirdGallerySection,
   WorkEthicSection,
+  FourthGallerySection,
+  FifthGallerySection,
+  InspirationSection,
 } from "@/components"
 import { useLenis, usePreloadimages } from "@/hooks"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -19,9 +22,7 @@ import { Analytics } from "@vercel/analytics/react"
  * @returns {JSX.Element} JSX Element for the home page.
  */
 export default function Home(): JSX.Element {
-  /**
-   * Custom Hooks
-   */
+  //* Custom Hooks
   useLenis()
   usePreloadimages()
 
@@ -39,6 +40,9 @@ export default function Home(): JSX.Element {
       <LifeSection />
       <ThirdGallerySection />
       <WorkEthicSection />
+      <FourthGallerySection />
+      <FifthGallerySection />
+      <InspirationSection />
     </div>
   )
 }

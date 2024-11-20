@@ -77,9 +77,20 @@ export const FirstGallerySection = (): JSX.Element => {
   return (
     <section className="content content--full content--padded">
       <div className="grid grid--spaced" data-grid-first>
-        {selectedImages.map((img, index) => (
-          <ImageGridItem key={index} img={img} className={`pos-${index + 1}`} />
-        ))}
+        {selectedImages.map((img, index) => {
+          try {
+            return (
+              <ImageGridItem
+                key={index}
+                img={img}
+                className={`pos-${index + 1}`}
+              />
+            )
+          } catch (error) {
+            console.error(`Failed to render image at index ${index}:`, error)
+            return null
+          }
+        })}
       </div>
       <ContentTitle title="Rawness" description="Captured in every moment" />
     </section>

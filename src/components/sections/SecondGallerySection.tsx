@@ -101,9 +101,14 @@ export const SecondGallerySection = (): JSX.Element => {
   return (
     <section className="content content--padded">
       <div className="grid grid--columns grid--spaced" data-grid-second>
-        {selectedImages.map((img, index) => (
-          <ImageGridItem key={index} img={img} />
-        ))}
+        {selectedImages.map((img, index) => {
+          try {
+            return <ImageGridItem key={index} img={img} />
+          } catch (error) {
+            console.error(`Failed to render image at index ${index}:`, error)
+            return null
+          }
+        })}
         {GRID_ITEMS.map(({ title, description, position }) => (
           <GridItem
             key={`grid-item-${position}`}

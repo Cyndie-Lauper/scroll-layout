@@ -44,3 +44,11 @@ export const images: ImageList[] = [
   "41.webp",
   "42.webp",
 ]
+
+export type Transform = {
+  x: number
+  y: number
+  z: number
+  rotateX: number
+  rotateY: number
+}
