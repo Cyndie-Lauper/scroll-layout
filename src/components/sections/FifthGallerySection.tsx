@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useCallback } from "react"
+import React, { useEffect, useCallback, JSX } from "react"
 import "@/styles/base.css"
 import { images } from "@/constants"
 import { ImageGridItem } from "../core"
@@ -79,7 +79,7 @@ const animateFifthGrid = (): void => {
  * @returns {JSX.Element} JSX Element for the gallery section.
  */
 export const FifthGallerySection = (): JSX.Element => {
-  const selectedImages = images.slice(7, 42)
+  const selectedImages = images.slice(6, 42)
 
   // Use useCallback to memoize the animateFirstGrid function
   const initAnimation = useCallback(() => {

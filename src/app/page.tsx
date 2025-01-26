@@ -12,10 +12,13 @@ import {
   FourthGallerySection,
   FifthGallerySection,
   InspirationSection,
+  SixthGallerySection,
+  ProcessSection,
 } from "@/components"
 import { useLenis, usePreloadimages } from "@/hooks"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import { JSX } from "react"
 
 /**
  * The main page of the website.
@@ -43,6 +46,8 @@ export default function Home(): JSX.Element {
       <FourthGallerySection />
       <FifthGallerySection />
       <InspirationSection />
+      <SixthGallerySection />
+      <ProcessSection />
     </div>
   )
 }

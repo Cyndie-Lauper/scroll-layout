@@ -12,29 +12,29 @@
   "dependencies": {
     "@studio-freight/react-lenis": "^0.0.47",
     "@types/imagesloaded": "^4.1.6",
-    "@vercel/analytics": "^1.4.0",
+    "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "clsx": "^2.1.1",
-    "gsap": "^3.12.5",
+    "gsap": "^3.12.7",
     "imagesloaded": "^5.0.0",
-    "lenis": "^1.1.16",
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "tailwind-merge": "^2.5.4"
+    "lenis": "^1.1.20",
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.15.0",
+    "@eslint/js": "^9.19.0",
     "@types/node": "^22",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^9.15.0",
-    "eslint-config-next": "15.0.3",
-    "globals": "^15.12.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9.19.0",
+    "eslint-config-next": "15.1.6",
+    "globals": "^15.14.0",
     "postcss": "^8",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.2",
     "tailwindcss": "^3.4.15",
     "typescript": "^5",
-    "typescript-eslint": "^8.15.0"
+    "typescript-eslint": "^8.21.0"
   }
 }
