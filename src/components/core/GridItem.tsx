@@ -1,5 +1,6 @@
 import { mergeClasses } from "@/utils"
 import "@/styles/base.css"
+import { JSX } from "react"
 
 interface GridItemProps {
   title: string

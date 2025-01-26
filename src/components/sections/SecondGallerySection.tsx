@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useCallback, useEffect } from "react"
+import React, { JSX, useCallback, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { images } from "@/constants"

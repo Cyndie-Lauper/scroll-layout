@@ -16,6 +16,7 @@ import {
 import { useLenis, usePreloadimages } from "@/hooks"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import { JSX } from "react"
 
 /**
  * The main page of the website.
