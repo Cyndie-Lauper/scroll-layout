@@ -74,6 +74,20 @@
   grid-auto-rows: 1fr;
 }
 
+.grid--zoomed {
+  gap: 2rem;
+  grid-template-columns: repeat(3, 70%);
+  grid-template-rows: repeat(3, 60%);
+  justify-content: center;
+  align-content: center;
+  aspect-ratio: 2 / 1;
+}
+
+.grid--wide {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
 .pos-1 {
   grid-area: 1 / 1;
 }

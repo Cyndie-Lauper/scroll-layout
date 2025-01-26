@@ -79,7 +79,7 @@ const animateFifthGrid = (): void => {
  * @returns {JSX.Element} JSX Element for the gallery section.
  */
 export const FifthGallerySection = (): JSX.Element => {
-  const selectedImages = images.slice(7, 42)
+  const selectedImages = images.slice(6, 42)
 
   // Use useCallback to memoize the animateFirstGrid function
   const initAnimation = useCallback(() => {

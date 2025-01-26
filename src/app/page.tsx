@@ -12,6 +12,8 @@ import {
   FourthGallerySection,
   FifthGallerySection,
   InspirationSection,
+  SixthGallerySection,
+  ProcessSection,
 } from "@/components"
 import { useLenis, usePreloadimages } from "@/hooks"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -44,6 +46,8 @@ export default function Home(): JSX.Element {
       <FourthGallerySection />
       <FifthGallerySection />
       <InspirationSection />
+      <SixthGallerySection />
+      <ProcessSection />
     </div>
   )
 }
