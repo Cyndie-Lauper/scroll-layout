@@ -6,7 +6,6 @@ import { images } from "@/constants"
 import { ContentTitle, ImageGridItem } from "../core"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { calculateInitialTransform } from "@/utils"
 
 gsap.registerPlugin(ScrollTrigger)
 
